@@ -1,6 +1,7 @@
 const express = require('express')
 const moment = require('moment')
 const Influx = require('influx')
+const cors = require('cors')
 
 const influx = new Influx.InfluxDB({
     database: 'ballometer',
@@ -9,6 +10,7 @@ const influx = new Influx.InfluxDB({
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.listen(process.env.PORT, () => {
     console.log('Read service running on port ' + String(process.env.PORT))
