@@ -91,7 +91,6 @@ app.get('/now', (req, res) => {
 const getPoints = async (username, flightId) => {
 
     const myFlightId = flightId ? flightId : Math.max(...await getFlightIds(username))
-    console.log(myFlightId)
 
     const start = await getStart(username, myFlightId)
     const stop = await getStop(username, myFlightId)
@@ -124,7 +123,26 @@ const getPoints = async (username, flightId) => {
         point.time = r.time.getNanoTime() * 1e-9
         return point
     })
-    return points
+    // points looks like
+    // [{
+    //     time: 1608369598,
+    //     altitude: 6000,
+    //     speed: 100,
+    //     heading: null,
+    //     climb: null,
+    //     longitude: null,
+    //     latitude: null
+    // }, ...]
+
+    return {
+        time: points.map(point => point.time),
+        altitude: points.map(point => point.altitude),
+        speed: points.map(point => point.speed),
+        heading: points.map(point => point.heading),
+        climb: points.map(point => point.climb),
+        longitude: points.map(point => point.longitude),
+        latitude: points.map(point => point.latitude)
+    }
 }
 
 app.get('/points', (req, res) => {
