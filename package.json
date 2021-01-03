@@ -1,0 +1,24 @@
+{
+  "name": "read",
+  "version": "1.0.0",
+  "description": "Node express server for reading data on ballometer.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipfli/read.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wipfli/read/issues"
+  },
+  "homepage": "https://github.com/wipfli/read#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "influx": "^5.6.3",
+    "moment": "^2.29.1"
+  }
+}
