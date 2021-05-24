@@ -1,38 +1,15 @@
-# read
-Node express server for reading data on ballometer.io
+# api-read
 
-## Installation
+Node express server for reading measurement data from a ballometer server
 
-Write a ```read.service``` file:
-
-```
-[Unit]
-Description=Node express server for reading data on ballometer.io
-
-[Service]
-WorkingDirectory=/root/read
-Environment=PORT=3002
-ExecStart=node index.js
-Restart=always
-TimeoutStopSec=30
-
-[Install]
-WantedBy=multi-user.target
-```
+## usage
 
 ```bash
 npm install
 ```
 
-test with
+Develop with
 
 ```bash
 PORT=3002 node index.js
-```
-
-install with
-
-```bash
-systemctl enable /root/read/read.service
-systemctl start read
 ```
